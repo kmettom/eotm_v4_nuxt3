@@ -1,0 +1,159 @@
+// @import '_main.scss';
+
+//**************************************
+// Colors
+//**************************************
+
+$green: #3ec28f;
+$green-trans: rgba(21, 68, 50, 0.8);
+$green-trans-l: rgba( #3ec28f, 0.7);
+$black: rgb(10, 10, 10);
+$black-trans: rgba(10, 10, 10, 0.5);
+$black-trans-l: rgba(10, 10, 10, 0.3);
+$black-trans-d: rgba(10, 10, 10, 0.8);
+$grey-d: rgba(20, 20, 20, 1);
+$grey-d-bg: rgba(0, 0, 0, 1);
+$grey-d-trans: rgba(20, 20, 20, 0.5);
+$grey-d-trans-80: rgba(20, 20, 20, 0.8);
+$grey-l: rgba(225, 225, 225, 0.8);
+$white: #e1e1e1;
+$red: red;
+
+$polygon: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+
+$bg-radient: radial-gradient(
+  rgba(50, 50, 50, 1) 1%,
+  rgba(0, 0, 0, 1)
+);
+
+//**************************************
+// PADDING SIZE
+//**************************************
+// used for page/article section paddings
+
+$paddingS: 10px;
+$paddingM: 25px;
+$paddingL: 50px;
+
+//**************************************
+// Thumbs
+//**************************************
+
+$width-4thumbs: 1500px;
+$width-3thumbs: 1225px;
+$width-2thumbs: 850px;
+$width-thumbs-flat: 650px;
+
+//**************************************
+// Breakpoints
+//**************************************
+
+$w1650: 1650px;
+$w1370: 1370px;
+$w991: 991px;
+$w768: 768px;
+$w550: 550px;
+$w350: 350px;
+
+$h500: 500px;
+
+//**************************************
+// Mixins
+//**************************************
+
+@mixin respond-width($media) {
+  @media (max-width: $media - 1px) {
+    @content;
+  }
+}
+
+@mixin respond-height($media) {
+  @media (max-height: $media - 1px) {
+    @content;
+  }
+}
+
+@mixin respond-thumbs($media, $media2) {
+  @media (max-width: $media) and (min-width: $media2) {
+    @content;
+  }
+}
+
+@mixin font-title {
+  font-family: "LatoLight", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $green;
+  @include respond-width($w991) {
+    font-size: 16px;
+  }
+}
+
+@mixin font-subtitle {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 160.8%;
+  letter-spacing: 1px;
+  color: $white;
+  @include respond-width($w991) {
+    font-size: 22px;
+  }
+  @include respond-width($w550) {
+    font-size: 18px;
+  }
+}
+
+@mixin font-navbar {
+  font-family: "LatoLight", sans-serif;
+  font-weight: 300;
+  font-size: 1.375rem;
+  line-height: 26px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $white;
+}
+
+@mixin font-description {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 160%;
+  letter-spacing: 1px;
+  color: $white;
+  @include respond-width($w991) {
+    font-size: 18px;
+  }
+  @include respond-width($w550) {
+    font-size: 16px;
+  }
+}
+
+@mixin article-wrapper {
+  opacity: 0;
+  max-width: 1500px;
+  width: 85%;
+  margin: 0 auto;
+  padding-bottom: 22vh;
+  @include respond-width($w991) {
+    width: 93%;
+    padding-bottom: 12vh;
+  }
+}
+
+//from css-tricks
+@mixin word-wrap() {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
