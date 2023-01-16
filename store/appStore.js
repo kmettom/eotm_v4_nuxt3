@@ -68,7 +68,7 @@ export const actions = {
 export const mutations = {
   gallery( state, galleryData ){
     state.gallery = galleryData;
-    CanvasService.openGalleryCanvas(galleryData);
+    // CanvasService.openGalleryCanvas(galleryData);
     if(galleryData){
       state.galleryHeight = state.gallery.pictures.length * 175;
     }

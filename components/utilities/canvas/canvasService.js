@@ -1,21 +1,20 @@
 //
-// // import THREE from 'three';
-// // import Scroll from './scroll.js';
-// import imagesLoaded from 'imagesloaded';
+// import * as THREE from 'three';
+// import Scroll from './scroll.js';
+//
 // import gsap from 'gsap';
-// import FontFaceObserver from 'fontfaceobserver';
+//
 // // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 //
-// // import imageGalleryFragment from './shaders/imageGalleryFragment.glsl';
-// // import imageGalleryVertex from './shaders/imageGalleryVertex.glsl';
-// // import galleryFragment from './shaders/galleryFragment.glsl';
-// // import galleryVertex from './shaders/galleryVertex.glsl';
-// // import thumbFragment from './shaders/thumbFragment.glsl';
-// // import thumbVertex from './shaders/thumbVertex.glsl';
-// // import scrollFragment from './shaders/scrollFragment.glsl';
-// // import scrollVertex from './shaders/scrollVertex.glsl';
+// import imageGalleryFragment from './shaders/imageGalleryFragment.glsl';
+// import imageGalleryVertex from './shaders/imageGalleryVertex.glsl';
+// import galleryFragment from './shaders/galleryFragment.glsl';
+// import galleryVertex from './shaders/galleryVertex.glsl';
+// import thumbFragment from './shaders/thumbFragment.glsl';
+// import thumbVertex from './shaders/thumbVertex.glsl';
+// import scrollFragment from './shaders/scrollFragment.glsl';
+// import scrollVertex from './shaders/scrollVertex.glsl';
 //
-// // import vertex from './shaders/noise.glsl';
 //
 // // import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 // // import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
@@ -36,7 +35,7 @@
 //     this.container = options.dom;
 //     this.pointer = {cursor: null , intersects: null };
 //     this.saveScrollPosition = 0;
-//     // this.container = options.dom;
+//     this.container = options.dom;
 //
 //     this.time = 0;
 //     this.scene = new THREE.Scene();
@@ -111,7 +110,7 @@
 //
 //       this.raycaster.setFromCamera( this.pointer.cursor , this.camera );
 //       this.pointer.intersects = this.raycaster.intersectObjects( this.scene.children ).filter(i => {return !i.object.name.includes("imagegallery")} );
-//       // const inter = this.raycaster.intersectObjects( this.scene.children );
+//       const inter = this.raycaster.intersectObjects( this.scene.children );
 //       let materialHovered = { name: false };
 //
 //       if(this.pointer.intersects.length > 0) {
@@ -249,15 +248,15 @@
 //     let position = { top : bounds.top , left: bounds.left};
 //     position.top += this.currentScroll;
 //
-//     if(_type == "thumb"){
+//     if(_type === "thumb"){
 //       geometry = new THREE.CircleGeometry( bounds.width*0.58 , 6 , 11);
 //       if(DisplayService.isMobile()){
 //         geometry = new THREE.PlaneGeometry( 375 , 250 );
 //       }
-//     }else if (_type == "gallery") {
+//     }else if (_type === "gallery") {
 //       geometry = new THREE.PlaneGeometry( bounds.width , bounds.height );
 //     }
-//     else if (_type == "imagegallery") {
+//     else if (_type === "imagegallery") {
 //       geometry = new THREE.PlaneGeometry( bounds.width , bounds.height );
 //       position.top += this.currentScroll ;
 //     }
@@ -575,4 +574,4 @@
 //   // dom: document.getElementById('eotmAnimationContainer')
 // });
 //
-// export default { CanvasService };
+// // export default { CanvasService };

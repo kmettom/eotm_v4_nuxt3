@@ -10,6 +10,13 @@
   "devDependencies": {
     "nuxt": "3.0.0",
     "sass": "^1.57.1",
-    "sass-loader": "^13.2.0"
+    "sass-loader": "^13.2.0",
+    "scss": "^0.2.4",
+    "scss-loader": "^0.0.1",
+    "vite-plugin-glsl": "^1.1.0"
+  },
+  "dependencies": {
+    "gsap": "^3.11.4",
+    "three": "^0.148.0"
   }
 }

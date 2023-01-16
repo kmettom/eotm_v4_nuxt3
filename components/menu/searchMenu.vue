@@ -5,9 +5,9 @@
         type="text"
         name
         value
-        :placeholder="searchPlaceholder"
         v-model="searchWord"
       />
+      <!--        :placeholder="searchPlaceholder"-->
     </div>
 
     <div class="tags-wrapper">
@@ -26,8 +26,10 @@
 </template>
 
 <script>
-// import { TagsService } from "../../article/TagsService.js";
-// import { DisplayService } from '../../utilities/displayService.js';
+
+
+// import { TagsService } from "../article/TagsService.js";
+// import { DisplayService } from '../utilities/displayService.js';
 
 export default {
   name: "SearchMenu",
@@ -39,7 +41,7 @@ export default {
       tagsActive: [],
       searchIntervalActive: null,
       searchInterval: null,
-      searchPlaceholder: DisplayService.isMobile() ? "Search" : 'Type a phrase or pick a tag',
+      // searchPlaceholder: DisplayService.isMobile() ? "Search" : 'Type a phrase or pick a tag',
     };
   },
   created: function () {},
@@ -145,9 +147,8 @@ export default {
 };
 </script>
 
-<style scoped >
-/* lang="scss"  */
-/* .search-menu-wrapper {
+<style scoped  lang="scss" >
+.search-menu-wrapper {
   position: absolute;
   left: 0px;
   width: 100%;
@@ -210,5 +211,5 @@ $tagLeftMargin: 4vw;
     text-decoration: underline;
     color: $green;
   }
-} */
+}
 </style>

@@ -3,18 +3,18 @@
     class="nav-wrapper"
     :class="{ 'search-menu': menuState.type == 'search' }"
   >
-    <!-- <Transition name="menu">
+    <Transition name="menu">
       <app-menu
         v-show="menuState.active && menuState.type === 'basic'"
         :menustate="menuState"
       ></app-menu>
-    </Transition> -->
+    </Transition>
 
     <Transition name="logo">
       <div class="logo-wrapper" v-show="menuState.type !== 'search'">
-        <!-- <router-link :to="{ name: 'Home' }"> -->
+<!--         <router-link :to="{ name: 'Home' }">-->
           <img class="logo" src="/assets/img/common/logo_sm.svg" alt="logo" v-bind="{ 'data-cursorsize': 75, 'data-cursoropacity': 0.3 }" />
-        <!-- </router-link> -->
+<!--         </router-link>-->
       </div>
     </Transition>
 
@@ -87,14 +87,14 @@
 </template>
 
 <script>
-// import appMenu from "./menu/Menu.vue";
-// import searchMenu from "./menu/searchMenu.vue";
+import appMenu from "./menu/Menu.vue";
+import searchMenu from "./menu/searchMenu.vue";
 
 export default {
   name: "Navigation",
   components: {
-    // appMenu,
-    // searchMenu,
+    appMenu,
+    searchMenu,
   },
   data() {
     return {

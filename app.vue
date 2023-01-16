@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div client-only >
     <Navigation />
   </div>
 </template>

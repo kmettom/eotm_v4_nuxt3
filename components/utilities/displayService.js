@@ -16,16 +16,16 @@ class DisplayServiceClass {
     window.addEventListener('resize' , (_event) => {
 
       if( this.isMobile() ){
-        CanvasService.disableCanvas();
+        // CanvasService.disableCanvas();
       }else {
-        CanvasService.resizeInProgress = true;
+        // CanvasService.resizeInProgress = true;
         setTimeout(() => {
-          CanvasService.resizeInProgress = false;
+          // CanvasService.resizeInProgress = false;
         }, 150);
         setTimeout(() => {
-          if(!CanvasService.resizeInProgress) {
-            CanvasService.resetCanvasSize();
-          }
+          // if(!CanvasService.resizeInProgress) {
+          //   CanvasService.resetCanvasSize();
+          // }
         }, 300);
       }
     });
@@ -35,4 +35,4 @@ class DisplayServiceClass {
 }
 
 const DisplayService = new DisplayServiceClass();
-export default { DisplayService }
+export default  DisplayService

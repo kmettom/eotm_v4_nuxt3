@@ -19,7 +19,7 @@ const imgLoader = {
       if(el.getBoundingClientRect().width > 0){
         let timeout = binding.value.includes('thumb') ? 400 : 250;
         setTimeout(() => {
-          CanvasService.addImageMesh(binding.arg, binding.value , el);
+          // CanvasService.addImageMesh(binding.arg, binding.value , el);
         }, timeout);
       }else {
         setTimeout(() => {
@@ -42,7 +42,7 @@ const imgLoader = {
     if(binding.value){
       if(binding.arg == "imagegallery") return;
       if(DisplayService.isMobile()) return;
-      CanvasService.removeImageMesh(binding.arg, binding.value );
+      // CanvasService.removeImageMesh(binding.arg, binding.value );
     }
   }
 

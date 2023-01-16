@@ -2,21 +2,21 @@
   <nav class="menu-bg-overlay">
     <div class="basic-menu-wrapper">
       <div class="basic-menu-link" :class="{'active' : activeMenu == 'Home'}">
-        <router-link :to="{ name: 'Home' }">
-          <span class="menu-txt" v-set-data-attrs="{cursorsize: 75 , cursoropacity: 0.3 }">Articles</span>
-        </router-link>
+<!--        <router-link :to="{ name: 'Home' }">-->
+          <span class="menu-txt" v-bind="{ 'data-cursorsize': 75, 'data-cursoropacity': 0.3 }">Articles</span>
+<!--        </router-link>-->
       </div>
 
       <!-- <div class="basic-menu-link" :class="{'active' : activeMenu == 'Shop'}">
         <router-link :to="{ name: 'Shop'}">
-          <span class="menu-txt" v-set-data-attrs="{cursorsize: 75 , cursoropacity: 0.3 }">shop</span>
+          <span class="menu-txt" v-bind="{ 'data-cursorsize': 75, 'data-cursoropacity': 0.3 }">shop</span>
         </router-link>
       </div> -->
 
       <div class="basic-menu-link" :class="{'active' : activeMenu == 'About'}">
-        <router-link :to="{ name: 'About'}">
-          <span class="menu-txt" v-set-data-attrs="{cursorsize: 75 , cursoropacity: 0.3 }">about</span>
-        </router-link>
+<!--        <router-link :to="{ name: 'About'}">-->
+          <span class="menu-txt" v-bind="{ 'data-cursorsize': 75, 'data-cursoropacity': 0.3 }">about</span>
+<!--        </router-link>-->
       </div>
     </div>
   </nav>
@@ -42,9 +42,9 @@ export default {
 };
 </script>
 
-<style scoped  >
-/* lang="scss" */
-/* .menu-bg-overlay {
+<style scoped lang="scss" >
+
+ .menu-bg-overlay {
   position: fixed;
   top: 0px;
   bottom: 0px;
@@ -110,5 +110,5 @@ export default {
     font-size: 36px;
   }
   }
-} */
+}
 </style>
