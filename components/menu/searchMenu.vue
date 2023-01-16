@@ -48,12 +48,12 @@ export default {
   methods: {
     getTags() {
       this.mainSearchTags = [];
-      TagsService.getTags().then((_data) => {
-        for (var i = 0; i < _data.length; i++) {
-          if (_data[i].mainSearchTag) this.mainSearchTags.push(_data[i].name);
-        }
-        this.setActiveTags(this.$route.query.tags);
-      });
+      // TagsService.getTags().then((_data) => {
+      //   for (var i = 0; i < _data.length; i++) {
+      //     if (_data[i].mainSearchTag) this.mainSearchTags.push(_data[i].name);
+      //   }
+      //   this.setActiveTags(this.$route.query.tags);
+      // });
     },
     setActiveTags(_tags){
       if (!_tags) {
