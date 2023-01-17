@@ -131,8 +131,6 @@ export default {
           this.$emit('searchMenuState', true);
         }
 
-
-
       }, menuCloseTimeout);
     },
     closeSearchFromState(){ //resets navigation to closed when state was changed
