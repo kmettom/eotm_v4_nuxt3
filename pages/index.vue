@@ -1,14 +1,16 @@
 <template>
   <div class="">
 
-    <Navigation/>
+   INDEX APGE
 
   </div>
 
 </template>
 
 <script>
+
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  // methods: {state}
 }
 </script>

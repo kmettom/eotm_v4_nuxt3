@@ -12,9 +12,14 @@
 
     <Transition name="logo">
       <div class="logo-wrapper" v-show="menuState.type !== 'search'">
-<!--         <router-link :to="{ name: 'Home' }">-->
-          <img class="logo" src="/assets/img/common/logo_sm.svg" alt="logo" v-bind="{ 'data-cursorsize': 75, 'data-cursoropacity': 0.3 }" />
-<!--         </router-link>-->
+        <NuxtLink to="/">
+          <img
+            class="logo"
+            src="~/assets/images/logo.svg"
+            alt="logo"
+            v-bind="{ 'data-cursorsize': 75, 'data-cursoropacity': 0.3 }"
+          />
+        </NuxtLink>
       </div>
     </Transition>
 
@@ -90,6 +95,7 @@
 import appMenu from "./menu/Menu.vue";
 import searchMenu from "./menu/searchMenu.vue";
 
+
 export default {
   name: "Navigation",
   components: {
@@ -106,19 +112,19 @@ export default {
   methods: {
     basicMenuToggle(_type) {
       let menuCloseTimeout =  0;
-      if(this.$route.name == "Search" && this.menuState.active ){
+      if(this.$route.name === "Search" && this.menuState.active ){
         menuCloseTimeout =  350;
         this.$router.push({ name: 'Home'});
       }
       setTimeout(() => { // set timeout to ease the animations if cancelling search
         this.menuState.active = !this.menuState.active;
-        if(this.menuState.type == "search"){
+        if(this.menuState.type === "search"){
           this.$emit('searchMenuState', this.menuState.active);
         }
 
         if (_type === "basic") {
           this.menuState.type = this.menuState.active ? "basic" : "null";
-          this.$store.commit("noScrollState", this.menuState.active);
+          // this.$store.commit("noScrollState", this.menuState.active);
         } else {
           this.menuState.type = "search";
           this.menuState.active = true;
@@ -131,7 +137,7 @@ export default {
     },
     closeSearchFromState(){ //resets navigation to closed when state was changed
       this.menuState.active = false;
-      this.$store.commit("noScrollState", false);
+      // this.$store.commit("noScrollState", false);
       this.menuState.type = null;
       this.$emit('searchMenuState', false);
     }

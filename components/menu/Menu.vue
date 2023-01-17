@@ -2,21 +2,14 @@
   <nav class="menu-bg-overlay">
     <div class="basic-menu-wrapper">
       <div class="basic-menu-link" :class="{'active' : activeMenu == 'Home'}">
-<!--        <router-link :to="{ name: 'Home' }">-->
+        <NuxtLink to="/">
           <span class="menu-txt" v-bind="{ 'data-cursorsize': 75, 'data-cursoropacity': 0.3 }">Articles</span>
-<!--        </router-link>-->
+        </NuxtLink>
       </div>
-
-      <!-- <div class="basic-menu-link" :class="{'active' : activeMenu == 'Shop'}">
-        <router-link :to="{ name: 'Shop'}">
-          <span class="menu-txt" v-bind="{ 'data-cursorsize': 75, 'data-cursoropacity': 0.3 }">shop</span>
-        </router-link>
-      </div> -->
-
       <div class="basic-menu-link" :class="{'active' : activeMenu == 'About'}">
-<!--        <router-link :to="{ name: 'About'}">-->
+        <NuxtLink to="/">
           <span class="menu-txt" v-bind="{ 'data-cursorsize': 75, 'data-cursoropacity': 0.3 }">about</span>
-<!--        </router-link>-->
+        </NuxtLink>
       </div>
     </div>
   </nav>
