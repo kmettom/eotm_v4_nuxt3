@@ -1,19 +1,19 @@
 // import store from '../appStore.js';
 // import {CanvasService} from  './canvas/canvasService.js';
-
 class DisplayServiceClass {
 
   constructor(){
     this.mobileResBreak = 650;
   }
 
-  isMobile(){
-    return window.innerWidth < this.mobileResBreak ;
+  isMobile(_windowWidth){
+    return _windowWidth < this.mobileResBreak ;
+    // return false;
   }
 
-  init() {
+  init(_window) {
 
-    window.addEventListener('resize' , (_event) => {
+    _window.addEventListener('resize' , (_event) => {
 
       if( this.isMobile() ){
         // CanvasService.disableCanvas();

@@ -13,4 +13,5 @@ export default defineNuxtConfig({
     },
     plugins: [glsl()],
   },
+  dev: process.env.NODE_ENV !== 'production',
 })

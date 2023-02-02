@@ -1,17 +1,22 @@
 import axios from 'axios';
-if(window._eotmConfig.mode === 'development'){
+import {state} from "~/store/appStore";
+
+if( process.env.NODE_ENV === 'development' ){
   axios.defaults.withCredentials = false;
 }
+
+console.log(process.env.NODE_ENV + ' ' + process.env.DEV_API + ' ' + process.env.PROD_API , state);
 
  class ArticleServiceClass {
 
   constructor(){
-    this.getArticleURL = window._eotmConfig[window._eotmConfig.mode].apiURL + '/article/';
+    this.getArticleURL = '/article/';
+    // this.getArticleURL = store.backedAPI + '/article/';
     this.thumbsPage = 15;
   }
 
   getArticle(_articleHref){
-    
+        console.log(state)
     return axios.get( this.getArticleURL + _articleHref  ).then(  (response) =>  {
       return response.data;
     })

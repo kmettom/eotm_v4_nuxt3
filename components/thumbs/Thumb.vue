@@ -33,9 +33,9 @@
 import { ThumbsService } from "./thumbsService.js";
 
 import { gsap } from "gsap";
-import { mapState } from 'vuex';
-import {CanvasService}  from '../utilities/canvas/canvasService.js';
-import {DisplayService} from '../utilities/displayService.js';
+// import { mapState } from 'vuex';
+// import {CanvasService}  from '~/utilities/canvas/canvasService.js';
+// import {DisplayService} from '~/utilities/displayService.js';
 
 
 export default {
@@ -71,7 +71,7 @@ export default {
   },
   methods: {
     thumbHover(_activate, _id) {
-     if(DisplayService.isMobile()) return;
+     // if(DisplayService.isMobile()) return;
 
      if (_activate && !this.thumbActiveAnimations[_id]) {
        this.thumbActiveAnimations[_id] = gsap.timeline();
@@ -101,13 +101,14 @@ export default {
      }
    },
     goToArticle(){
-      if(DisplayService.isMobile()){
+      if(false){
+      // if(DisplayService.isMobile()){
         this.$router.push({ name: "Article", params: { href: this.article.href }})
       }else {
         this.$emit("aniAllThumbsOut");
-        CanvasService.thumbToArticle(this.thumbMeshId).then( () => {
-          this.$router.push({ name: "Article", params: { href: this.article.href }})
-        });
+        // CanvasService.thumbToArticle(this.thumbMeshId).then( () => {
+        //   this.$router.push({ name: "Article", params: { href: this.article.href }})
+        // });
       }
     },
     thumbEnterAni(el, done){

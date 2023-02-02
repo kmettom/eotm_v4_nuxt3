@@ -1,17 +1,20 @@
 import axios from 'axios';
-if(window._eotmConfig.mode === 'development'){
+import {state} from "~/store/appStore";
+
+if(process.env.NODE_ENV === 'development'){
   axios.defaults.withCredentials = false;
 }
 
 class ThumbsServiceClass {
 
   constructor(){
-    this.getThumbsURL = window._eotmConfig[window._eotmConfig.mode].apiURL + '/articles/get/';
-    this.searchThumbsURL = window._eotmConfig[window._eotmConfig.mode].apiURL + '/articles/search/';
+    // this.getThumbsURL = '/articles/get/';
+    this.getThumbsURL = state.backedAPI + '/articles/get/';
+    // this.searchThumbsURL = '/articles/search/';
+    this.searchThumbsURL = state.backedAPI + '/articles/search/';
     this.thumbsPage = 32;
   }
   getThumbsPage(_page){
-    // const isDev = window._eotmConfig.mode === 'development';
     const isDev = false;
     let getThumbsURL =  isDev ?
      this.getThumbsURL + this.thumbsPage + '/' + _page + '?articlestatus=all' // get also test thumbs on development

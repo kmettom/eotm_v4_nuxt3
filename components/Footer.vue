@@ -22,7 +22,7 @@
 
 
       <div class="footer-link bottom">
-        <NuxtLink to="/about">
+        <NuxtLink to="/About">
           <span
               class="footer-txt"
               v-bind="{ 'data-cursorsize': 75, 'data-cursoropacity': 0.3 }"

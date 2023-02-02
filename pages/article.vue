@@ -123,8 +123,9 @@
 import { ArticleService } from "./ArticleService.js";
 import { UserService } from "../admin/UserService.js";
 import {gsap} from 'gsap';
+
 // import {CanvasService}  from '../utilities/canvas/canvasService.js';
-import {DisplayService} from '../utilities/displayService.js'
+// import {DisplayService} from '../utilities/displayService.js'
 
 export default {
   name: "Article",
@@ -144,7 +145,8 @@ export default {
   },
   computed: {
     isMobile(){
-      return DisplayService.isMobile();
+      return false;
+      // return DisplayService.isMobile();
     },
     meshIdGallery(){
       return 'gallery' + this.articleData.href;
@@ -195,7 +197,7 @@ export default {
 
     },
     openGallery(_index) {
-      if(DisplayService.isMobile()) return;
+      // if(DisplayService.isMobile()) return;
       this.$store.commit('gallery' , { articleHref: this.articleData.href, picIndex: _index , pictures: this.artContent.gallery.pictures } );
     },
     tagLink(_tag) {
