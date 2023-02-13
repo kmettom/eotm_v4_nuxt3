@@ -36,7 +36,7 @@
 </template>
 <script setup lang="ts">
 
-import {state} from "~/store/appStore";
+import {state} from "~/store";
 import Gallery from "~/components/article/gallery/Gallery.vue";
 import Footer from "~/components/Footer.vue";
 

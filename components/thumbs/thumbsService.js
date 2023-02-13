@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {state} from "~/store/appStore";
+import {state} from "~/store";
 
 if(process.env.NODE_ENV === 'development'){
   axios.defaults.withCredentials = false;
@@ -9,10 +9,10 @@ class ThumbsServiceClass {
 
   constructor(){
     // this.getThumbsURL = '/articles/get/';
-    this.getThumbsURL = state.backedAPI + '/articles/get/';
+    this.getThumbsURL = "https://eotm-app.herokuapp.com"  + '/articles/get/';
     // this.searchThumbsURL = '/articles/search/';
     this.searchThumbsURL = state.backedAPI + '/articles/search/';
-    this.thumbsPage = 32;
+    this.thumbsPage = 1;
   }
   getThumbsPage(_page){
     const isDev = false;
@@ -20,6 +20,9 @@ class ThumbsServiceClass {
      this.getThumbsURL + this.thumbsPage + '/' + _page + '?articlestatus=all' // get also test thumbs on development
      :
      this.getThumbsURL + this.thumbsPage + '/' + _page;
+
+      console.log("process" ,  process  );
+      console.log("state" ,  state.backedAPI );
 
     return axios.get( getThumbsURL ).then(  (response) =>  { // add query  + '?articlestatus=all|ready|live , if query empty == life
       return response.data;

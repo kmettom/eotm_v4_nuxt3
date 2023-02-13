@@ -2,11 +2,11 @@
 
   <div class="thumbs-container" ref="thumbsContainer" v-if="thumbsData">
 
-    <div class="buttons-wrapper" v-if="state.isAdminMode">
+    <div class="buttons-wrapper" v-if="false">
       <div class="save-button btn"  @click="$router.push({ name: 'AdminThumbs'} )" >thumbs admin</div>
     </div>
 
-    <thumb @aniAllThumbsOut="aniAllThumbsOut" ref="thumb" :key="item._id"  v-for="( item , index ) in thumbsData"  :article="item"></thumb>
+    <thumb @aniAllThumbsOut="aniAllThumbsOut" ref="thumb" :key="index"  v-for="( item , index ) in thumbsData"  :article="item"></thumb>
 
     <div v-if="noResultsTxt"  class="no-results-txt">No results found</div>
 
@@ -14,12 +14,12 @@
     v-if="loadMoreBtnEnabled && !noResultsTxt"
     class="load-more-btn"
     @click="fetchThumbsPage(true)"
-    :data-cursorsize="state.cursorHover.size"
-    :data-cursoropacity="state.cursorHover.opacity"
+    :data-cursorsize="cursorSize"
+    :data-cursoropacity="0.3"
     >
-    <span class="text" :data-cursorsize="state.cursorHover.size" :data-cursoropacity="state.cursorHover.opacity">more</span>
-    <span class="arrow" :data-cursorsize="state.cursorHover.size" :data-cursoropacity="state.cursorHover.opacity"></span>
-    <span class="arrow copy" :data-cursorsize="state.cursorHover.size" :data-cursoropacity="state.cursorHover.opacity"></span>
+    <span class="text" :data-cursorsize="65" :data-cursoropacity="0.3">more</span>
+    <span class="arrow" :data-cursorsize="65" :data-cursoropacity="0.3"></span>
+    <span class="arrow copy" :data-cursorsize="65" :data-cursoropacity="0.3"></span>
 
   </div>
 
@@ -28,17 +28,21 @@
 </template>
 
 <script>
-import { ThumbsService } from "../components/thumbs/thumbsService.js";
-import Thumb from "../components/thumbs/Thumb.vue";
+import { gsap } from "gsap";
+import { ThumbsService } from "~/components/thumbs/thumbsService";
+import Thumb from "~/components/thumbs/Thumb.vue";
+
 // import LoadingSpinner from "../welcome/loadingSpinner.vue";
 
-import {state} from "~/store/appStore";
-
-import { gsap } from "gsap";
-// import { mapState } from 'vuex';
 
 export default {
   name: "Thumbs",
+  computed: {
+    cursorSize() {
+      console.log("store" , this.$store);
+      return 65;
+    },
+  },
   props: [],
   components: {
     // LoadingSpinner,
@@ -46,7 +50,6 @@ export default {
   },
   data() {
     return {
-      // state: state,
       thumbsData: [],
       currentThumbsPage: 1,
       loadMoreBtnEnabled: false,

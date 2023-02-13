@@ -1,22 +1,17 @@
 export const state = () => ({
-  backedAPI: process.env.NODE_ENV === 'development' ? process.env.DEV_API : process.env.PROD_API,
-  // isMobileRes : false,
-  // isMobileRes : DisplayService.isMobile(),
-  // searchNoResult: false,
-  noScroll: true,
-  isAdminMode: false,
-  currentUser: false,
-  enterAnimationDone: false,
-  thumbsLoaded: false,
-  gallery: false,
-  galleryHeight: 0,
-  cursorHover: {size: 65 , opacity: 0.3 },
+  "backedAPI": "https://eotm-app.herokuapp.com",
+  "noScroll": true,
+  "isAdminMode": false,
+  "currentUser": false,
+  "enterAnimationDone": false,
+  "thumbsLoaded": false,
+  "gallery": false,
+  "galleryHeight": 0,
+  "cursorHover": {size: 65 , opacity: 0.3 },
 })
 
-// contains your actions
 export const actions = {
 }
-// contains your mutations
 export const mutations = {
   gallery( state, galleryData ){
     state.gallery = galleryData;
@@ -35,6 +30,5 @@ export const mutations = {
     state.noScroll =  _newStatus;
   }
 }
-// your root getters
 export const getters = {
 }

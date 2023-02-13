@@ -1,4 +1,4 @@
-// import store from '../appStore.js';
+// import store from '../index.js';
 // import {CanvasService} from  './canvas/canvasService.js';
 class DisplayServiceClass {
 

@@ -56,7 +56,7 @@
       <p  class="gallery-description section-description" v-if="artContent.gallery.description ">{{artContent.gallery.description}}</p>
 
       <!-- <div class="main-picture" v-if="artContent.gallery.mainPicture"   >
-        <img class="main-picture_img" :alt="artContentTitle"  :data-cursorsize="$store.state.cursorHover.size"  :data-cursoropacity="$store.state.cursorHover.opacity" :src="'/assets/galleries/' + articleData.href + '/' + artContent.gallery.pictures[0][0]" @click="openGallery(0)" v-imgloader:gallery.webgl="meshIdMainImg" />
+        <img class="main-picture_img" :alt="artContentTitle"  :data-cursorsize="state.cursorHover.size"  :data-cursoropacity="state.cursorHover.opacity" :src="'/assets/galleries/' + articleData.href + '/' + artContent.gallery.pictures[0][0]" @click="openGallery(0)" v-imgloader:gallery.webgl="meshIdMainImg" />
       </div> -->
 
       <div class="pictures" v-if="artContent.gallery.pictures.length > 0">
@@ -65,13 +65,13 @@
           v-for="(picture, index) in artContent.gallery.pictures"
           :key="index"
           @click="openGallery(index)"
-          :data-cursorsize="$store.state.cursorHover.size"
-          :data-cursoropacity="$store.state.cursorHover.opacity"
+          :data-cursorsize="state.cursorHover.size"
+          :data-cursoropacity="state.cursorHover.opacity"
         >
         <!-- v-if="index != 0" -->
         <!-- v-if="!artContent.gallery.mainPicture || index != 0" -->
 
-          <img class="picture_img" :alt="artContentTitle" v-if="!isMobile" :data-cursorsize="$store.state.cursorHover.size" :data-cursoropacity="$store.state.cursorHover.opacity" :src="'/assets/galleries/' + articleData.href + '/' + picture[1]"  v-imgloader:gallery.webgl="meshIdGallery + '_' + index"  />
+          <img class="picture_img" :alt="artContentTitle" v-if="!isMobile" :data-cursorsize="state.cursorHover.size" :data-cursoropacity="$store.state.cursorHover.opacity" :src="'/assets/galleries/' + articleData.href + '/' + picture[1]"  v-imgloader:gallery.webgl="meshIdGallery + '_' + index"  />
           <img class="picture_img" :alt="artContentTitle" v-else :src="'/assets/galleries/' + articleData.href + '/' + picture[0]" v-imgloader />
 
         </div>
@@ -82,12 +82,12 @@
 
       <h3 class="related-title">Related:</h3>
       <div class="next-article-arrows" v-if="articleData.relatedArticles" v-bind="{ 'data-cursorsize': 75, 'data-cursoropacity': 0.3 }">
-        <span   class="article-link next-article-arrows_left"  :data-cursorsize="$store.state.cursorHover.size"   :data-cursoropacity="$store.state.cursorHover.opacity" @click="goToRelatedArticle(articleData.relatedArticles.prev)" v-if="articleData.relatedArticles.prev">
+        <span   class="article-link next-article-arrows_left"  :data-cursorsize="state.cursorHover.size"   :data-cursoropacity="state.cursorHover.opacity" @click="goToRelatedArticle(articleData.relatedArticles.prev)" v-if="articleData.relatedArticles.prev">
           <svg width="35" height="15" fill="none" viewBox="0 0 39 28"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.172 14.92l11.173 11.173-1.168 1.169-12-12-.009.01L0 14.104l.01-.01-.01-.01 1.168-1.168.01.01 11.999-12 1.168 1.169L3.172 13.268h35.335v1.652H3.172z" fill="#3EC28F"/></svg>
           {{articleData.relatedArticles.prev.title}}
         </span>
 
-        <span  class="article-link next-article-arrows_right"  :data-cursorsize="$store.state.cursorHover.size" :data-cursoropacity="$store.state.cursorHover.opacity" @click="goToRelatedArticle(articleData.relatedArticles.next)" v-if="articleData.relatedArticles.next">
+        <span  class="article-link next-article-arrows_right"  :data-cursorsize="state.cursorHover.size" :data-cursoropacity="state.cursorHover.opacity" @click="goToRelatedArticle(articleData.relatedArticles.next)" v-if="articleData.relatedArticles.next">
           <svg width="35" height="15" viewBox="0 0 39 28" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M35.8085 13.268L24.6352 2.09474L25.8035 0.926461L37.8028 12.9257L37.8125 12.9161L38.9807 14.0844L38.9711 14.094L38.9807 14.1037L37.8125 15.272L37.8028 15.2623L25.8035 27.2616L24.6352 26.0933L35.8083 14.9202L0.473144 14.9202L0.473144 13.268L35.8085 13.268Z" fill="#3EC28F"/></svg>
           {{articleData.relatedArticles.next.title}}
         </span>
@@ -101,8 +101,8 @@
         class="tag-link"
         v-for="tag in articleData.tags"
         :key="tag.id"
-        :data-cursorsize="$store.state.cursorHover.size"
-        :data-cursoropacity="$store.state.cursorHover.opacity"
+        :data-cursorsize="state.cursorHover.size"
+        :data-cursoropacity="state.cursorHover.opacity"
         @click="tagLink(tag)"
         >#{{tag}}</span>
       </div>
@@ -123,6 +123,7 @@
 import { ArticleService } from "./ArticleService.js";
 import { UserService } from "../admin/UserService.js";
 import {gsap} from 'gsap';
+import {state} from "~/store";
 
 // import {CanvasService}  from '../utilities/canvas/canvasService.js';
 // import {DisplayService} from '../utilities/displayService.js'
@@ -156,6 +157,7 @@ export default {
     }
   },
   methods: {
+    state,
     playVideo(_knowledgeItem) {
       if(!_knowledgeItem.videoUrl.includes("?autoplay=1")){
         _knowledgeItem.videoUrl += "?autoplay=1";

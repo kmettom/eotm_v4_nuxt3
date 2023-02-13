@@ -22,7 +22,7 @@
 // // import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 //
 // // import {DisplayService} from '../displayService.js';
-// // import store from '../../appStore.js'
+// // import store from '../../index.js'
 //
 // class canvasServiceClass{
 //   constructor(options){

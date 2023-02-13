@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {state} from "~/store/appStore";
+import {state} from "~/store";
 
 if( process.env.NODE_ENV === 'development' ){
   axios.defaults.withCredentials = false;
@@ -10,8 +10,7 @@ console.log(process.env.NODE_ENV + ' ' + process.env.DEV_API + ' ' + process.env
  class ArticleServiceClass {
 
   constructor(){
-    this.getArticleURL = '/article/';
-    // this.getArticleURL = store.backedAPI + '/article/';
+    this.getArticleURL = store.backedAPI + '/article/';
     this.thumbsPage = 15;
   }
 
@@ -26,6 +25,11 @@ console.log(process.env.NODE_ENV + ' ' + process.env.DEV_API + ' ' + process.env
     });
 
   }
+
+  //getter method for fetching articles with axios
+
+
+
 
 }
 

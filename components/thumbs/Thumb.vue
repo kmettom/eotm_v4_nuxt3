@@ -33,7 +33,7 @@
 import { ThumbsService } from "./thumbsService.js";
 
 import { gsap } from "gsap";
-// import { mapState } from 'vuex';
+
 // import {CanvasService}  from '~/utilities/canvas/canvasService.js';
 // import {DisplayService} from '~/utilities/displayService.js';
 

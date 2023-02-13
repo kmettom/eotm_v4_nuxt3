@@ -3,6 +3,9 @@
 import glsl from 'vite-plugin-glsl';
 
 export default defineNuxtConfig({
+  runtimeConfig: {
+    baseURL: process.env.BASE_URL
+  },
   vite: {
     css: {
       preprocessorOptions: {
@@ -15,3 +18,5 @@ export default defineNuxtConfig({
   },
   dev: process.env.NODE_ENV !== 'production',
 })
+
+
